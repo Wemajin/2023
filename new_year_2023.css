@@ -1,0 +1,66 @@
+body, html, .mainWebsiteContent{
+    overflow: hidden;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,77,121,1) 86%);
+}
+
+
+. lightDiv .lampe{
+    background:black;
+    width: 78.39px;
+    height: 78.39px;
+    border-radius: 0;
+    margin: 1em;
+}
+.trottoir{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+.trottoir:only-child{
+    width: 100vw;
+}
+.svgBat{
+    width: 100%;
+    height: 100vh;
+}
+
+.mainMenu{
+    display: none;
+}
+footer{
+    display: none;
+
+}
+.ciel{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+}
+@keyframes lampeAllume {
+    0% {fill:rgba(0,0,0,0.81)}
+    15% {fill: #696900}
+    30% {fill:rgba(0,0,0,0.81)}
+    45% {fill:#696900}
+    60% {fill:rgba(0,0,0,0.81)}
+    75% {fill:#696900}
+
+    90% {fill:yellow}
+
+}
+.lamp{
+    cursor: pointer;
+    transition:0.3s fill ease;
+
+    fill: rgba(0, 0, 0, 0.81);
+    border: solid 50px black;
+}
+
+.On{
+    fill: yellow;
+    animation-name : lampeAllume;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
