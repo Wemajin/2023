@@ -4,6 +4,31 @@ body, html, .mainWebsiteContent{
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,90,121,1) 86%);
 }
 
+.fullPercent{
+    width: 2em;
+    height: 25em;
+    background: gray;
+    outline:1px solid black;
+    border-radius: 1em;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lampLenght{
+    transition: height 1s ease;
+    height: 0;
+    border-radius: 0 0 1em  1em  ;
+    position: absolute;
+    width: 2em;
+    background: red;
+    bottom: 0;
+}
 
 .lightDiv .lampe{
     background:black;
