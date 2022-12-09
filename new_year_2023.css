@@ -1,11 +1,11 @@
 body, html, .mainWebsiteContent{
     overflow: hidden;
     background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,77,121,1) 86%);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,90,121,1) 86%);
 }
 
 
-. lightDiv .lampe{
+.lightDiv .lampe{
     background:black;
     width: 78.39px;
     height: 78.39px;

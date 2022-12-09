@@ -3,56 +3,66 @@ window.addEventListener('load',function(){
     let divPoints = document.querySelector('#divPoints');
     let lampe = fenetreG.querySelectorAll('rect');
     let test = 0;
-    let tempBaisse = 3000;
-    let points = document.querySelector('.points span');
+    let tempBaisse = 5000;
+        let timer = setInterval(OnLampe, tempBaisse) ;
+    let pointsDisplay = document.querySelector('.points span');
+    let points = 0;
     let time = divPoints.querySelector('.time span');
 
-    let lampeOn = fenetreG.querySelectorAll('rect.On');
-    let lampeOf = fenetreG.querySelectorAll('rect ');
+    let lampeOn = fenetreG.querySelectorAll('rect.on');
+    let lampeOff = fenetreG.querySelectorAll('rect.off');
+
+
     for(let i = 0; i < lampe.length; i++){
-        lampe[i].classList.add('off');
+        ClickLamp(lampe[i]);
     }
-    for(let i = 0; i < lampe.length; i++){
-        ClickLamp(lampeOf[i]);
+
+        function refreshValues(){
+     lampeOn = fenetreG.querySelectorAll('rect.on');
+     lampeOff = fenetreG.querySelectorAll('rect.off');
+    tempBaisse = tempBaisse - points * 10 ;
+    timer = setInterval(OnLampe, tempBaisse) ;
     }
+
     function ClickLamp(element){
-        element.addEventListener("click", e => {
-            if(element.classList.contains('On')) {
-                element.classList.remove('On');
-                points.innerHTML++;
+        element.addEventListener("mouseenter", e => {
+            if(element.classList.contains('on')) {
+                element.classList.remove('on');
+                pointsDisplay.innerHTML = points ;
                 element.classList.add('off');
-                lampeOf = fenetreG.querySelectorAll('rect.off');
                 test = lampeOn.length / lampe.length;
                 console.log(test);
 
             }
         })
+         refreshValues() ;
     }
     function OnLampe(){
-        let randomNombre = Math.floor(Math.random() * lampe.length);
-        if(time.innerHTML > 20){
-            console.log('ccc');
-            tempBaisse = time.innerHTML / points.innerHTML * 17;
-        }
-        console.log(time);
-        console.log(points);
-        console.log(tempBaisse);
-        while(true){
-            if(lampe[randomNombre].classList.contains('On') && lampe.length !== lampeOn.length){
-                randomNombre = Math.floor(Math.random() * lampe.length);
-            }
-            else{
-                test = lampeOn.length / lampe.length;
-                break;
-            }
-        }
+        let randomNombre = Math.floor(Math.random()) * lampeOff.length;
 
-        let LampeAAllume = lampe[randomNombre];
-        LampeAAllume.classList.add("On");
+        // if(time.innerHTML > 20){
+        //     console.log('ccc');
+        //     tempBaisse = time.innerHTML / points.innerHTML * 17;
+        // }
+        // console.log(time);
+        // console.log(points);
+        // console.log(tempBaisse);
+        // while(true){
+        //     if(lampe[randomNombre].classList.contains('On') && lampe.length !== lampeOn.length){
+        //         randomNombre = Math.floor(Math.random() * lampe.length);
+        //     }
+        //     else{
+        //         test = lampeOn.length / lampe.length;
+        //         break;
+        //     }
+        // }
+
+        let LampeAAllume = lampeOff[randomNombre];
+        console.log(Math.random() ) ;
+        LampeAAllume.classList.add("on");
         LampeAAllume.classList.remove('off');
 
-        lampeOn = fenetreG.querySelectorAll('rect.On');
-        lampeOf = fenetreG.querySelectorAll('rect.off');
+ refreshValues() ;
 
     }
 
@@ -61,7 +71,7 @@ window.addEventListener('load',function(){
     }
 
     setInterval(addTime,1000);
-    setInterval(OnLampe, tempBaisse)
+
 //
 // let lampes;
 // let tempsTotal = 0 ; // temps depuis le début de la partie
