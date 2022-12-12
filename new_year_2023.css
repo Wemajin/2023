@@ -89,3 +89,22 @@ footer{
     animation-duration: 1s;
     animation-timing-function: linear;
 }
+
+.endPopUp{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20em;
+    height: 5em;
+    background: rgb(161, 158, 158);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+.endPopUp h3{
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}

@@ -5,6 +5,7 @@ window.addEventListener('load',function(){
     let lampeOn = fenetreG.querySelectorAll('rect.On');
     let lampeOff = fenetreG.querySelectorAll('rect.off');
     let test = lampeOn.length / lampe.length * 100;
+    let gameWindow = document.querySelector('.game');
     console.log(lampeOn.length);
     console.log(lampe.length);
     let percentBar = document.querySelector('.lampLenght');
@@ -13,6 +14,16 @@ window.addEventListener('load',function(){
         test = lampeOn.length / lampe.length * 100;
         percentBar.style.height = test +'%';
     }
+
+
+    const endGame = [
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(200%)' }
+    ]
+    const endGameTime = {
+        duration: 1500,
+        iterations: 1
+    };
 
     let tempBaisse = 700;
 
@@ -35,20 +46,25 @@ if(lampeOn.length > 0){
     tempBaisse = tempBaisse - points * 10 ;
     }
 
+
+
     function ClickLamp(element){
         element.addEventListener("mouseenter", e => {
             if(element.classList.contains('On')) {
                 element.classList.remove('On');
-                pointsDisplay.innerHTML = points ;
                 element.classList.add('off');
                 test = lampeOn.length / lampe.length;
                 refreshValues() ;
                 console.log(lampeOff.length);
                 console.log(lampe.length);
 
-                if(lampeOff.length == lampe.length){
+                if(lampeOff.length === lampe.length){
                     console.log("fini");
+                    let divFin = document.querySelector('.endPopUp');
+                    divFin.style.display = 'flex';
                     clearInterval(timer)
+                    gameWindow.animate(endGame, endGameTime);
+                    gameWindow.style.transform = 'translateY(200%)';
                 }
                 PercentBar();
             }
